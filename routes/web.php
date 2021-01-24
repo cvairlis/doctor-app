@@ -17,10 +17,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+// group middlewares
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/patients', function () {
-    return view('patients');
-})->name('patients');
+    // group patients
+    Route::prefix('patients')->group(function () {
+        Route::get('', function () {
+            return view('patients/show');
+        })->name('patients.show');
+    });
+});

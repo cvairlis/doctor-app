@@ -16,7 +16,7 @@
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
 
-                    <x-jet-nav-link href="{{ route('patients') }}" :active="request()->routeIs('patients')">
+                    <x-jet-nav-link href="{{ route('patients.show') }}" :active="request()->routeIs('patients.show')">
                         {{ __('Patients') }}
                     </x-jet-nav-link>
                 </div>
@@ -146,7 +146,7 @@
                 {{ __('Dashboard') }}
             </x-jet-responsive-nav-link>
 
-            <x-jet-responsive-nav-link href="{{ route('patients') }}" :active="request()->routeIs('patients')">
+            <x-jet-responsive-nav-link href="{{ route('patients.show') }}" :active="request()->routeIs('patients.show')">
                 {{ __('Patients') }}
             </x-jet-responsive-nav-link>
         </div>
